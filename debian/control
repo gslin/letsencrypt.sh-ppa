@@ -1,0 +1,16 @@
+Source: letsencrypt.sh
+Section: utils
+Priority: optional
+Maintainer: Gea-Suan Lin (PPA) <gslin@gslin.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+Homepage: https://github.com/lukas2511/letsencrypt.sh
+Vcs-Git: git@github.com:lukas2511/letsencrypt.sh.git
+Vcs-Browser: https://github.com/lukas2511/letsencrypt.sh
+
+Package: letsencrypt.sh
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, curl, openssl, sed
+Description: letsencrypt/acme client implemented as a shell-script.
+ A client for signing certificates with an ACME-server (currently only provided
+ by letsencrypt) implemented as a relatively simple bash-script.

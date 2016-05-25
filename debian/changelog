@@ -1,0 +1,11 @@
+letsencrypt.sh (0.1.0-1ubuntu1~unstable~ppa2) unstable; urgency=low
+
+  * Fix letsencrypt.sh installing path.
+
+ -- Gea-Suan Lin (PPA) <gslin@gslin.org>  Tue, 03 May 2016 11:36:45 +0800
+
+letsencrypt.sh (0.1.0-1ubuntu1~unstable~ppa1) unstable; urgency=low
+
+  * Packaging 0.1.0.
+
+ -- Gea-Suan Lin (PPA) <gslin@gslin.org>  Tue, 03 May 2016 11:27:09 +0800
