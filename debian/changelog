@@ -1,3 +1,9 @@
+letsencrypt.sh (0.2.0-1ubuntu1~unstable~ppa1) unstable; urgency=medium
+
+  * Packaging 0.2.0.
+
+ -- Gea-Suan Lin (PPA) <gslin@gslin.org>  Wed, 25 May 2016 19:02:33 +0800
+
 letsencrypt.sh (0.1.0-1ubuntu1~unstable~ppa2) unstable; urgency=low
 
   * Fix letsencrypt.sh installing path.
