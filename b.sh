@@ -27,3 +27,11 @@ fi
 
 rm -rf -- "${TMPDIR}"
 mkdir -p "${TMPDIR}"
+
+pushd "${TMPDIR}/"
+git clone "${GIT_REPOSITORY_URL}" "${NAME}-${VERSION}/"
+cd "${NAME}-${VERSION}/"
+git checkout "${GIT_HASH}"
+cd ..
+tar -zcv --exclude-vcs -f "${NAME}-${VERSION}.tar.gz" "${NAME}-${VERSION}/"
+popd
