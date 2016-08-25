@@ -1,7 +1,9 @@
 #!/bin/bash
 
 GIT_REPOSITORY_URL=https://github.com/lukas2511/letsencrypt.sh.git
-TMPDIR=/tmp/letsencrypt.sh
+NAME=letsencrypt.sh
+
+TMPDIR="/tmp/${NAME}"
 
 if [[ "x$1" = "x" ]]; then
     cat <<EOF
