@@ -25,13 +25,30 @@ else
     VERSION="$2"
 fi
 
+BASEDIR="${TMPDIR}/${NAME}-${VERSION}"
+TARBALL="${NAME}-${VERSION}.tar.gz"
+
 rm -rf -- "${TMPDIR}"
 mkdir -p "${TMPDIR}"
 
 pushd "${TMPDIR}/"
-git clone "${GIT_REPOSITORY_URL}" "${NAME}-${VERSION}/"
-cd "${NAME}-${VERSION}/"
+git clone "${GIT_REPOSITORY_URL}" "${BASEDIR}/"
+cd "${BASEDIR}/"
 git checkout "${GIT_HASH}"
 cd ..
-tar -zcv --exclude-vcs -f "${NAME}-${VERSION}.tar.gz" "${NAME}-${VERSION}/"
+tar -zcv --exclude-vcs -f "${TARBALL}" "${BASEDIR}/"
 popd
+
+cp -R debian/ "${BASEDIR}/"
+pushd "${BASEDIR}/"
+dh_make -f "../${TARBALL}" -s < /dev/null
+
+# If we have already submitted this version before, use -i to increase version.
+if grep -q "^${NAME} (${VERSION}" debian/changelog; then
+    dch --distribution unstable -i
+else
+    dch --distribution unstable -v "${VERSION}-1ubuntu1~unstable~ppa1"
+fi
+
+popd
+cp "${BASEDIR}/debian/changelog" debian/
