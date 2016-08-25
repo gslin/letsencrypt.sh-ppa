@@ -36,7 +36,7 @@ git clone "${GIT_REPOSITORY_URL}" "${BASEDIR}/"
 cd "${BASEDIR}/"
 git checkout "${GIT_HASH}"
 cd ..
-tar -zcv --exclude-vcs -f "${TARBALL}" "${BASEDIR}/"
+tar -zcv --exclude-vcs -f "${TARBALL}" "${NAME}-${VERSION}/"
 popd
 
 cp -R debian/ "${BASEDIR}/"
