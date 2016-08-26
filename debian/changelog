@@ -1,3 +1,9 @@
+letsencrypt.sh (0.2.0.20160822-1ubuntu1~unstable~ppa1) unstable; urgency=medium
+
+  * Packaging 0.2.0.20160822.
+
+ -- Gea-Suan Lin (PPA) <gslin@gslin.org>  Thu, 25 Aug 2016 09:02:20 +0800
+
 letsencrypt.sh (0.2.0-1ubuntu1~unstable~ppa1) unstable; urgency=medium
 
   * Packaging 0.2.0.
