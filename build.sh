@@ -26,7 +26,8 @@ else
 fi
 
 BASEDIR="${TMPDIR}/${NAME}-${VERSION}"
-TARBALL="${NAME}-${VERSION}.tar.gz"
+TARBALL="${NAME}-${VERSION}.tar"
+TARBALL_GZ="${TARBALL}.gz"
 
 rm -rf -- "${TMPDIR}"
 mkdir -p "${TMPDIR}"
@@ -37,12 +38,13 @@ cd "${BASEDIR}/"
 git checkout "${GIT_HASH}"
 GIT_DATETIME="$(git log --format='%ci' HEAD...HEAD^)"
 cd ..
-tar -zcv --exclude-vcs --mtime="${GIT_DATETIME}" -f "${TARBALL}" "${NAME}-${VERSION}/"
+tar -cv --exclude-vcs --mtime="${GIT_DATETIME}" -f "${TARBALL}" "${NAME}-${VERSION}/"
+gzip -9 -n "${TARBALL}"
 popd
 
 cp -R debian/ "${BASEDIR}/"
 pushd "${BASEDIR}/"
-dh_make -f "../${TARBALL}" -s < /dev/null
+dh_make -f "../${TARBALL_GZ}" -s < /dev/null
 
 # If we have already submitted this version before, use -i to increase version.
 if grep -q "^${NAME} (${VERSION}" debian/changelog; then
