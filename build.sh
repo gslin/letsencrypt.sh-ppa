@@ -35,8 +35,9 @@ pushd "${TMPDIR}/"
 git clone "${GIT_REPOSITORY_URL}" "${BASEDIR}/"
 cd "${BASEDIR}/"
 git checkout "${GIT_HASH}"
+GIT_DATETIME="$(git log --format='%ci' HEAD...HEAD^)"
 cd ..
-tar -zcv --exclude-vcs -f "${TARBALL}" "${NAME}-${VERSION}/"
+tar -zcv --exclude-vcs --mtime="${GIT_DATETIME}" -f "${TARBALL}" "${NAME}-${VERSION}/"
 popd
 
 cp -R debian/ "${BASEDIR}/"
