@@ -50,7 +50,7 @@ dh_make -f "../${TARBALL_GZ}" -s < /dev/null
 if grep -q "^${NAME} (${VERSION}" debian/changelog; then
     dch --distribution unstable -i
 else
-    dch --distribution unstable -v "${VERSION}-1ubuntu1~unstable~ppa1"
+    dch --distribution unstable -v "${VERSION}-0ubuntu1~unstable~ppa1"
 fi
 
 popd
